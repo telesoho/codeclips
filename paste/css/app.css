@@ -1,0 +1,56 @@
+.pastebox {
+  padding:5px;
+  border: 1px solid gray;
+}
+.main {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;  
+}
+
+.left {
+  padding:10px; /* this */ 
+  width:50%;
+  white-space: pre-wrap;
+  -webkit-flex: auto;
+	flex: auto;
+  border: 1px solid gray;
+  height: 800px;
+  overflow: auto;
+}
+
+.right {
+  width:50%;
+  -webkit-flex: auto;
+  -webkit-align-content:flex-start;/*--- safari（PC）用 ---*/
+  align-content:flex-start;
+  flex: auto;
+  border: 1px solid gray;
+  height: 800px;
+  overflow: auto;
+  padding:10px; /* this */
+}
+
+.paragraph {
+  padding:5px 0px 5px 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  width:100%;
+  white-space: pre-wrap;
+  -webkit-flex: auto;
+  flex: 1 1 auto;
+  cursor: move;
+  background-color: #E7F909;
+  margin: 10px 0px 10px 0px;  /* and that, will result in a 10px gap */
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
