@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+<div class="pastebox" id="app" contenteditable='true'>Paste some text here</div>
+<div class="main">
+    <div class="left" id='leftDiv' contenteditable='false'></div>
+    <div class="right" id='rightDiv' contenteditable='false'>
+       <div class="paragraph" draggable="true">OK1</div>
+       <div class="paragraph" draggable="true">OK2</div>
+       <div class="paragraph" draggable="true">OK3</div>
+    </div>
+</div>
+</body>
+<script>
+function handlePaste (e) {
+  var clipboardData, pastedData;
+
+  // Stop data actually being pasted into div
+  e.stopPropagation();
+  e.preventDefault();
+
+  // Get pasted data via clipboard API
+  clipboardData = e.clipboardData || window.clipboardData;
+  pastedData = clipboardData.getData('text/plain');
+  htmlData = clipboardData.getData('text/html');
+
+  texts = pastedData.split(/\r\n|\r|\n/);
+  
+  leftDiv.innerHTML = "";
+  texts.forEach(function(item, index){
+    if(item.trim() != "") {
+      leftDiv.innerHTML = leftDiv.innerHTML + '<div class="paragraph" draggable="true">' + item + '</div>'
+    }
+  });
+
+  // document.getElementById("leftDiv").innerText = pastedData;
+}
+
+window.onload = function () {
+  document.getElementById('app').addEventListener('paste', handlePaste);
+}
+</script>
+</html>
