@@ -40,6 +40,12 @@
         list2: []
       },
       methods: {
+        reset: function () {
+          // sort by order
+          vm.list.sort(function byOrder(a, b) {
+            return a.order - b.order;
+          });
+        },
         onPaste: function (e) {
           var clipboardData, pastedData;
           // Stop data actually being pasted into div
@@ -64,6 +70,7 @@
               );
             }
           });
+          vm.list.sort();
         }
       }
     });
