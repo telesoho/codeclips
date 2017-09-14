@@ -44,6 +44,10 @@ html, body {
   padding:10px; /* this */
 }
 
+.paragraph[color="error"] {
+  background-color: red;
+}
+
 .paragraph {
   padding:5px 0px 5px 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
@@ -56,6 +60,7 @@ html, body {
   background-color: #E7F909;
   margin: 10px 0px 10px 0px;  /* and that, will result in a 10px gap */
 }
+
 
 [draggable] {
   -moz-user-select: none;

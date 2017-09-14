@@ -24,8 +24,8 @@
         </draggable>
       </div>
       <div class="right" id='rightDiv' contenteditable='false'>
-        <draggable v-model="list2" class="dragArea" :options="{group:'people'}">
-          <div class="paragraph" v-for="element in list2">{{element.text}}</div>
+        <draggable v-model="resultList" class="dragArea" :options="{group:'people'}" @change="onChange">
+          <div class='paragraph' v-bind:color=element.color v-for="element in resultList">{{element.text}}</div>
         </draggable>
       </div>
     </div>
@@ -37,9 +37,27 @@
       el: "#main",
       data: {
         list: [],
-        list2: []
+        resultList: []
       },
       methods: {
+        onChange: function(evt) {
+          console.log(evt);
+          var maxOrder = -1;
+          for(var i = 0; i < this.resultList.length; i ++) {
+            if( this.resultList[i].order < maxOrder) {
+              // Vue 不允许在已经创建的实例上动态添加新的根级响应式属性 (root-level reactive property)。
+              // 然而它可以使用 Vue.set(object, key, value) 方法将响应属性添加到嵌套的对象上：
+              Vue.set(vm.resultList[i], 'color', "error");
+              // this.resultList[i]["color"] = "error"; //错误
+              console.log(this.resultList[i]["color"]);
+            } else {
+              Vue.set(vm.resultList[i], 'color', "correct");
+              // this.resultList[i]["color"] = "correct";
+              maxOrder = this.resultList[i].order;
+              console.log(this.resultList[i]["color"]);
+            }
+          } 
+        },
         reset: function () {
           // sort by order
           vm.list.sort(function byOrder(a, b) {
@@ -60,7 +78,8 @@
           texts = pastedData.split(/\r\n|\r|\n/);
 
           // leftDiv.innerHTML = "";
-          vm.list = [];
+          this.list = [];
+          this.resultList = [];
 
           texts.forEach(function (item, index) {
             if (item.trim() != "") {
@@ -70,7 +89,7 @@
               );
             }
           });
-          vm.list.sort();
+          this.list.sort();
         }
       }
     });
