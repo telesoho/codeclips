@@ -1,47 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+  <meta charset="utf-8">
+  <!-- CDNJS :: Vue (https://cdnjs.com/) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+
+  <!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.6.0/Sortable.js"></script>
+
+  <!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.14.1/vuedraggable.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
+
 <body>
-<div class="pastebox" id="app" contenteditable='true'>Paste some text here</div>
-<div class="main">
-    <div class="left" id='leftDiv' contenteditable='false'></div>
-    <div class="right" id='rightDiv' contenteditable='false'>
-       <div class="paragraph" draggable="true">OK1</div>
-       <div class="paragraph" draggable="true">OK2</div>
-       <div class="paragraph" draggable="true">OK3</div>
+  <div id="main">
+    <!-- <div class="pastebox" id="app" contenteditable='true' v-on:paste="onPaste">Paste some text here</div> -->
+    <div class="main" v-on:paste="onPaste">
+      <div class="left" id='leftDiv' contenteditable='false'>
+        <draggable v-model="list" class="dragArea" :options="{group:'people'}">
+          <div class="paragraph" v-for="element in list">{{element.text}}</div>
+        </draggable>
+      </div>
+      <div class="right" id='rightDiv' contenteditable='false'>
+        <draggable v-model="list2" class="dragArea" :options="{group:'people'}">
+          <div class="paragraph" v-for="element in list2">{{element.text}}</div>
+        </draggable>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 <script>
-function handlePaste (e) {
-  var clipboardData, pastedData;
+  window.onload = function () {
+    var vm = new Vue({
+      el: "#main",
+      data: {
+        list: [],
+        list2: []
+      },
+      methods: {
+        onPaste: function (e) {
+          var clipboardData, pastedData;
+          // Stop data actually being pasted into div
+          e.stopPropagation();
+          e.preventDefault();
 
-  // Stop data actually being pasted into div
-  e.stopPropagation();
-  e.preventDefault();
+          // Get pasted data via clipboard API
+          clipboardData = e.clipboardData || window.clipboardData;
+          pastedData = clipboardData.getData('text/plain');
+          // htmlData = clipboardData.getData('text/html');
 
-  // Get pasted data via clipboard API
-  clipboardData = e.clipboardData || window.clipboardData;
-  pastedData = clipboardData.getData('text/plain');
-  htmlData = clipboardData.getData('text/html');
+          texts = pastedData.split(/\r\n|\r|\n/);
 
-  texts = pastedData.split(/\r\n|\r|\n/);
-  
-  leftDiv.innerHTML = "";
-  texts.forEach(function(item, index){
-    if(item.trim() != "") {
-      leftDiv.innerHTML = leftDiv.innerHTML + '<div class="paragraph" draggable="true">' + item + '</div>'
-    }
-  });
+          // leftDiv.innerHTML = "";
+          vm.list = [];
 
-  // document.getElementById("leftDiv").innerText = pastedData;
-}
-
-window.onload = function () {
-  document.getElementById('app').addEventListener('paste', handlePaste);
-}
+          texts.forEach(function (item, index) {
+            if (item.trim() != "") {
+              vm.list.push({
+                order: index,
+                text: item}
+              );
+            }
+          });
+        }
+      }
+    });
+  }
 </script>
+
 </html>

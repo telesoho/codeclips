@@ -1,12 +1,24 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .pastebox {
   padding:5px;
   border: 1px solid gray;
+  height: 3vh;
+}
+.dragArea{
+  min-height: 20px;	
 }
 .main {
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-direction: row;
-	flex-direction: row;  
+  flex-direction: row;
+  height:100%;
 }
 
 .left {
@@ -16,7 +28,7 @@
   -webkit-flex: auto;
 	flex: auto;
   border: 1px solid gray;
-  height: 800px;
+  height: 96vh;
   overflow: auto;
 }
 
@@ -27,7 +39,7 @@
   align-content:flex-start;
   flex: auto;
   border: 1px solid gray;
-  height: 800px;
+  height:  96vh;
   overflow: auto;
   padding:10px; /* this */
 }
@@ -54,3 +66,5 @@
   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
+
+
