@@ -69,18 +69,14 @@
           // Stop data actually being pasted into div
           e.stopPropagation();
           e.preventDefault();
-
           // Get pasted data via clipboard API
           clipboardData = e.clipboardData || window.clipboardData;
           pastedData = clipboardData.getData('text/plain');
           // htmlData = clipboardData.getData('text/html');
-
           texts = pastedData.split(/\r\n|\r|\n/);
-
           // leftDiv.innerHTML = "";
           this.list = [];
           this.resultList = [];
-
           texts.forEach(function (item, index) {
             if (item.trim() != "") {
               vm.list.push({
@@ -89,7 +85,9 @@
               );
             }
           });
-          this.list.sort();
+          this.list.sort(function (a, b){
+            return Math.floor(Math.random() * 100) - 50;
+          });
         }
       }
     });
