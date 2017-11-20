@@ -3,6 +3,8 @@ Some useful code clips for my work.
 
 # Recognize Sound
 
+[ライフゲームの世界](http://aidiary.hatenablog.com/entry/20130105/1357353184)
+
 [Recognizing Sounds (A Deep Learning Case Study)](https://medium.com/@awjuliani/recognizing-sounds-a-deep-learning-case-study-1bc37444d44d)
 
 You can download data set from here [data set of Recognizing Sounds](https://medium.com/@awjuliani/hi-rajat-e0bf4b96dfeb).
