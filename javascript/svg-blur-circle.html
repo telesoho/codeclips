@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<p>This is gaussian blur</p>
+<p class="blur">Time to clean my glasses</p> 
+<p>Draw circle with radius = 45 pen stroke width 5</p>
+<div style="width:200px;height:200px" class="blur">
+<svg viewBox="0 0 100 100">
+<path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"  stroke="darkred" stroke-width="5" fill-opacity="0"/>
+<path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke-linecap="round" stroke="red" stroke-width="6" fill-opacity="0" stroke-dasharray="283 283" stroke-dashoffset="100" />
+</svg>
+</div>
+<svg height="0">
+  <defs>
+    <filter id="wherearemyglasses" x="0" y="0">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.8"/>
+    </filter>
+  </defs>
+</svg>
+<style>
+.blur { filter: url(#wherearemyglasses); }
+</style>
+</body>
+</html>
