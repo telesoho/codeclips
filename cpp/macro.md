@@ -7,6 +7,7 @@ https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html#Concatenation
 ## Arg
 
 '''cpp
+
 #define ABC(x, ...) (x) ? #__VA_ARGS__ : ""
 #define PROPS(a, p) str.##a(p)
 
@@ -17,6 +18,7 @@ void main() {
 
     std::cout << str[0] ;
 }
+
 '''
 
 Output
