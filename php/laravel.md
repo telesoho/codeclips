@@ -13,3 +13,6 @@ https://johannespichler.com/developing-composer-packages-locally/
 
 # loading a package from a vcs repository
 https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository
+
+# Migrate table with multiple primary keys with one auto increment
+https://github.com/laravel/framework/issues/17204
