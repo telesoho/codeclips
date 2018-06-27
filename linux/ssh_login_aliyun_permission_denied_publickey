@@ -1,0 +1,4 @@
+# Permission denied (publickey)
+解决办法，在客户端：
+ssh-add key.pem
+
