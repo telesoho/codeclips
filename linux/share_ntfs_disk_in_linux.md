@@ -6,7 +6,7 @@
    
 1. Install samba and add the following to /etc/samba/smb.conf
 
-'''ini
+'''
 [global]
    workgroup = WORKGROUP
    force user = <username>
