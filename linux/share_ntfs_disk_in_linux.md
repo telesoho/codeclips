@@ -5,7 +5,8 @@
    This step will add auto mount script to /etc/fstab.   
    
 1. Install samba and add the following to /etc/samba/smb.conf
-'''
+
+'''ini
 [global]
    workgroup = WORKGROUP
    force user = <username>
