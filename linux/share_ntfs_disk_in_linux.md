@@ -6,7 +6,7 @@
    
 1. Install samba and add the following to /etc/samba/smb.conf
 
-'''
+```
 [global]
    workgroup = WORKGROUP
    force user = <username>
@@ -17,4 +17,4 @@
    browseable = yes
    public = yes
    writeable = yes
-'''
+```
