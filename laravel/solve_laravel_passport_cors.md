@@ -1,6 +1,12 @@
 # Solve laravel passport CORS
 https://medium.com/@mshanak/solved-laravel-5-3-passport-with-cors-2c6667ef058b
 
+## install laravel-cors
+
+https://github.com/barryvdh/laravel-cors
+
+## setup laravel for laravel-cors.
+
 Registe cors middleware.
 
 ```php
