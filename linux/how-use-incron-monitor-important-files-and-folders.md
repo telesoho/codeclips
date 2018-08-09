@@ -3,11 +3,15 @@ https://www.linux.com/learn/how-use-incron-monitor-important-files-and-folders
 
 # install incron
 https://github.com/ar-/incron
+http://blog.topspeedsnail.com/archives/4336
 
 ```sh
 sudo apt-get install incron
 sudo incrontab -e
+vim /etc/incron.allow
 ```
+
+
 ```
 $$ - a dollar sign
 $@ - the watched filesystem path (see above)
