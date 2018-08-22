@@ -10,4 +10,13 @@ https://blog.csdn.net/mvpboss1004/article/details/55803557
 cd ~/.config
 rm -rf SogouPY* sogou*
 ```
+
+or
+
+```sh
+rm -rf ~/.config/SogouPy* ~/.config/sogou*
+```
+
 然后重新登录即可。
+
+
