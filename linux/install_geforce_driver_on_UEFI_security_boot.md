@@ -47,7 +47,10 @@ sudo nano /etc/modprobe.d/blacklist-nouveau.conf
    ```
 
 Now you can reboot your computer, and when you get to the login prompt, press Ctrl+Alt+F1 to exit to the terminal console. Login with your username and password. stop your display manager or the X server,
+
+```sh
 sudo service lightdm stop
+```
 
 7) finall step install nvidia drivers
 
