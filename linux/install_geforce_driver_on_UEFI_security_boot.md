@@ -54,6 +54,10 @@ sudo service lightdm stop
    ```sh
    sh ./NVIDIA-Linux-x86-319.32.run -s --module-signing-secret-key=/path/to/UEFI.key --module-signing-public-key=/path/to/UEFI.der
    ```
+   
+see:
+https://askubuntu.com/questions/1023036/how-to-install-nvidia-driver-with-secure-boot-enabled
+
 
 Information about installing nvidia driver in ubuntu xenial-xerus can be found in this post
 https://linuxconfig.org/how-to-install-the-latest-nvidia-drivers-on-ubuntu-16-04-xenial-xerus
