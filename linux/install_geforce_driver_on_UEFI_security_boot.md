@@ -36,7 +36,10 @@ sudo nano /etc/modprobe.d/blacklist-nouveau.conf
    ```
    
    disable the Kernel Nouveau by typing these lines in a terminal window:
+   ```sh
    echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+   ```
+
    and after that
 
    ```sh
