@@ -6,7 +6,7 @@ If, like me, your are booting with UEFI (because having a triple boot ubuntu-win
 sudo openssl req -new -x509 -newkey rsa:2048 -keyout UEFI.key -outform DER -out UEFI.der -nodes -days 36500 -subj "/CN=rambou_nvidia/"
 ```
 
-2) step two load and store certificate in a supplementary key database MOC 
+2) step two load and store certificate in a supplementary key database MOC (Machine-Owner Key)
 
 ```sh
 sudo mokutil --import UEFI.der
