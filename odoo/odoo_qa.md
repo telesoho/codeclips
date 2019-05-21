@@ -16,3 +16,15 @@ https://www.quartile.co/en_US/forum/how-to/3/21
 ## 一个比较好的odoo开发博客
 
 https://www.cybrosys.com/blog
+
+## 图片引入模块
+
+https://www.odoo.com/apps/modules/12.0/import_image_fromurl/
+
+## 将附件上传到s3模块
+
+https://apps.odoo.com/apps/modules/12.0/pr1_s3/
+
+## 亚马逊对接模块
+
+https://apps.odoo.com/apps/modules/12.0/amazon_ept/
