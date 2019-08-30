@@ -18,5 +18,15 @@
             </tree>
         </field>
     </record>
+    <record id="action_product_template_attribute_value_line" model="ir.actions.act_window">
+        <field name="name">Website Product Tag</field>
+        <field name="res_model">product.template.attribute.value</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
+    <menuitem id="menu_product_template_attribute_value_line" name="Product attribute value" parent="website_sale.menu_catalog" sequence="11"
+                action="action_product_template_attribute_value_line"/>
     
  ```
