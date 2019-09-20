@@ -25,3 +25,8 @@ WHERE
   AND c.table_name   like 'product_%'
 and pg_stat_user_tables.relname = c.table_name
 ```
+
+
+## How to fix PostgreSQL error "duplicate key violates unique constraint"
+
+https://hcmc.uvic.ca/blogs/index.php/how_to_fix_postgresql_error_duplicate_ke?blog=22
