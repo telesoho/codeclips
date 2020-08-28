@@ -49,3 +49,7 @@ trusted-host=pypi.douban.com
  pypi.tuna.tsinghua.edu.cn
  pypi.mirrors.ustc.edu.cn
 ```
+
+## pip配置说明
+
+https://pip.pypa.io/en/stable/user_guide/#config-file
