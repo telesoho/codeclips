@@ -36,6 +36,7 @@ Linux环境下创建pip配置文件：
 
 vim .pip/pip.conf
 
+```ini
 [global]
 index-url=http://pypi.douban.com/simple
 extra-index-url=http://mirrors.aliyun.com/pypi/simple/
@@ -47,3 +48,4 @@ trusted-host=pypi.douban.com
  mirrors.aliyun.com
  pypi.tuna.tsinghua.edu.cn
  pypi.mirrors.ustc.edu.cn
+```
