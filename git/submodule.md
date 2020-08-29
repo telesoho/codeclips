@@ -21,7 +21,9 @@ submodule的删除稍微麻烦点：首先，要在“.gitmodules”文件中删
 当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：
 
 ```
-git submodule update --init --recursive
+git submodule update
 ```
 
 即可将子模块内容下载下来后工程才不会缺少相应的文件。
+
+https://git-scm.com/book/en/v2/Git-Tools-Submodules
