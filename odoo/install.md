@@ -41,3 +41,5 @@ sudo apt-get install -f
 addons_path = /home/telesoho/prjs/odoo/idcodoo/odoo12/odoo/addons,/home/telesoho/prjs/odoo/idcodoo/odoo12/addons,/home/telesoho/prjs/odoo/idcodoo/addons
 ```
 
+# How to install odoo 14 on ubuntu 2004
+https://www.candidroot.com/blog/our-candidroot-blog-1/post/how-to-install-odoo-14-on-ubuntu-20-04-lts-67
