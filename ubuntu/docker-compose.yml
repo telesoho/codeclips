@@ -1,0 +1,78 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-db
+    restart: always
+    volumes:
+      - /media/hd1/volumes/postgres:/var/lib/postgresql/data
+      - /etc/passwd:/etc/passwd:ro
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=strong_pg_odoo_password
+    networks:
+      postgres_subnet:
+        ipv4_address: 172.19.0.2
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    volumes:
+      - 'pgadmin_data:/dpage/pgadmin4'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@sdl.or.jp
+      - PGADMIN_DEFAULT_PASSWORD=your_passw0rd
+    depends_on:
+      - postgres
+    container_name: pgadmin4
+    ports:
+      - '8080:80'
+    networks:
+      postgres_subnet:
+        ipv4_address: 172.19.0.3
+
+  odoo:
+    image: telesoho/odoo-staging
+    command: start
+    container_name: odoo
+    restart: always
+    ports:
+      - 8069:8069
+      - 8071:8071
+      - 8072:8072
+    depends_on:
+      - postgres
+    volumes:
+      - /sdl/volumes/opt/odoo/etc:/opt/odoo/etc
+      - /sdl/volumes/opt/odoo/custom:/opt/odoo/custom
+      - /sdl/volumes/opt/odoo/data-staging:/opt/odoo/data
+      - /sdl/volumes/opt/source:/opt/sources
+      # - /sdl/volumes/odoo/ssh:/opt/odoo/ssh
+    environment:
+      - GITLAB_RUNNER_INPUT_FILE=/opt/sources/gitlab-runner-register.input
+      - CONF_FILE=/opt/odoo/etc/odoo-staging.conf
+      - ODOO_DB_HOST=172.19.0.2
+      - ODOO_DB_PORT=5432
+      - ODOO_ADDONS_PATH=/opt/odoo/custom/ngc_poc/addons,/opt/odoo/src/odoo/addons
+      - ODOO_DB_NAME=odoo-staging
+      - ODOO_DB_USER=odoo
+      - ODOO_ADMIN_PASSWD=strong_odoo_master_password
+      - ODOO_DB_PASSWORD=strong_pg_odoo_password
+      - ODOO_DATA_DIR=/opt/odoo/data
+      # - PYTHON_BIN=python3
+      # - SERVICE_BIN=odoo-bin
+      # - TARGET_UID=1000
+    networks:
+      postgres_subnet:
+        ipv4_address: 172.19.0.4
+
+networks:
+  postgres_subnet:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.19.0.0/24
+
+volumes:
+  pgadmin_data:
+    driver: local
