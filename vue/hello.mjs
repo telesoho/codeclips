@@ -1,4 +1,11 @@
-<template>
+<script type="module">
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  template: `
+  <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
@@ -29,13 +36,7 @@
     </ul>
   </div>
 </template>
-
-<script type="module">
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+`
 }
 </script>
 
